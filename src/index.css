@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #E67E22;
+  --color-brand-dark: #D35400;
+  --color-brand-light: #F39C12;
+  --color-navy: #1B2A4A;
+  --color-navy-mid: #243B5F;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1B2A4A;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
