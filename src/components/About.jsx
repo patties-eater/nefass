@@ -56,8 +56,8 @@ export default function About() {
               Lalitpur's Trusted Safety &amp; Security Supplier
             </h2>
             <p className="text-gray-500 leading-relaxed mb-4">
-              Based in Balkumari-3, Lalitpur, Everest Fire &amp; Safety is led by
-              Managing Director <span className="font-semibold text-navy">RB Jagri</span>. We
+              Based in Balkumari-3, Lalitpur, Agni Safe &amp; Safety Center is led by
+              Managing Director <span className="font-semibold text-navy">Mena Gautam</span>. We
               specialize in fire fighting equipment, electronic security systems, and telecom
               solutions for businesses, institutions, and public facilities across Nepal.
             </p>
@@ -69,11 +69,13 @@ export default function About() {
 
             {/* MD card */}
             <div className="flex items-center gap-4 bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 mb-8">
-              <div className="w-11 h-11 rounded-full bg-brand/10 border-2 border-brand/20 flex items-center justify-center text-brand font-heading font-black text-lg shrink-0">
-                RJ
-              </div>
+              <img
+                src="/mena_gautam.png"
+                alt="Mena Gautam — Managing Director"
+                className="w-12 h-12 rounded-full object-cover border-2 border-brand/20 shrink-0"
+              />
               <div>
-                <p className="font-heading font-bold text-navy text-sm">RB Jagri</p>
+                <p className="font-heading font-bold text-navy text-sm">Mena Gautam</p>
                 <p className="text-gray-400 text-xs">Managing Director (M.D.)</p>
               </div>
             </div>

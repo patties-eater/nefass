@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nefass.com.np/sitemap.xml
