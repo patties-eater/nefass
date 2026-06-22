@@ -68,15 +68,16 @@ export default function About() {
             </p>
 
             {/* MD card */}
-            <div className="flex items-center gap-4 bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 mb-8">
+            <div className="flex items-center gap-5 bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 mb-8">
               <img
                 src="/mena_gautam.png"
                 alt="Mena Gautam — Managing Director"
-                className="w-12 h-12 rounded-full object-cover border-2 border-brand/20 shrink-0"
+                className="w-20 h-20 rounded-xl object-cover border-2 border-brand/20 shrink-0 shadow-sm"
               />
               <div>
-                <p className="font-heading font-bold text-navy text-sm">Mena Gautam</p>
-                <p className="text-gray-400 text-xs">Managing Director (M.D.)</p>
+                <p className="font-heading font-bold text-navy text-base">Mena Gautam</p>
+                <p className="text-brand text-xs font-semibold mb-1">Managing Director (M.D.)</p>
+                <p className="text-gray-400 text-xs leading-relaxed">Agni Safe &amp; Safety Center</p>
               </div>
             </div>
 
