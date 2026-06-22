@@ -84,26 +84,40 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-start gap-2">
-                <span className="mt-0.5">📍</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 text-brand mt-0.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
                 <span>Balkumari-3, Lalitpur, Nepal</span>
               </li>
               <li>
                 <a href="tel:+97715201750" className="hover:text-brand transition-colors flex items-center gap-2">
-                  <span>☎️</span> 01-5201750
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 text-brand">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  01-5201750
                 </a>
               </li>
               <li>
                 <a href="tel:+9779851120100" className="hover:text-brand transition-colors flex items-center gap-2">
-                  <span>📱</span> 9851-120100 / 9841-445648
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 text-brand">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+                  </svg>
+                  9851-120100 / 9841-445648
                 </a>
               </li>
               <li>
                 <a href="mailto:jagrirb@gmail.com" className="hover:text-brand transition-colors flex items-center gap-2">
-                  <span>✉️</span> jagrirb@gmail.com
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 text-brand">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  jagrirb@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <span>🕐</span> Sun–Fri: 9 AM – 6 PM
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 text-brand">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Sun–Fri: 9 AM – 6 PM
               </li>
             </ul>
           </div>

@@ -62,7 +62,7 @@ export default function Navbar() {
           href="#contact"
           className="hidden md:inline-flex items-center gap-1.5 bg-brand hover:bg-brand-dark text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-px shrink-0"
         >
-          Get a Quote
+          Contact Us
         </a>
 
         {/* Hamburger */}
@@ -104,7 +104,7 @@ export default function Navbar() {
               className="mt-4 bg-brand hover:bg-brand-dark text-white font-bold px-5 py-3 rounded-lg text-center transition-colors"
               onClick={close}
             >
-              Get a Quote
+              Contact Us
             </a>
           </nav>
         </>

@@ -48,7 +48,7 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-navy font-semibold px-7 py-3.5 rounded-lg border-2 border-gray-200 hover:border-brand transition-all duration-200 hover:-translate-y-0.5"
             >
-              Get a Free Quote
+              Talk to Us
             </a>
           </div>
 

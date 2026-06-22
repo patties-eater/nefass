@@ -51,14 +51,30 @@ const info = [
   },
 ]
 
+const WA_NUMBER = '9779851120100'
+
 const inputCls = 'w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-navy text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all duration-150'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
-  const [sent, setSent] = useState(false)
 
   const onChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-  const onSubmit = e => { e.preventDefault(); setSent(true) }
+
+  const onSubmit = e => {
+    e.preventDefault()
+    const text = [
+      `Hello Agni Safe & Safety Center!`,
+      ``,
+      `Name: ${form.name}`,
+      form.email    ? `Email: ${form.email}`        : null,
+      form.phone    ? `Phone: ${form.phone}`        : null,
+      form.service  ? `Service: ${form.service}`    : null,
+      ``,
+      `Message: ${form.message}`,
+    ].filter(l => l !== null).join('\n')
+
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank')
+  }
 
   return (
     <section id="contact" className="py-24 bg-gray-50">
@@ -99,7 +115,12 @@ export default function Contact() {
 
             {/* Emergency strip */}
             <div className="mt-auto bg-orange-50 border border-orange-200 rounded-xl p-4">
-              <p className="text-xs font-bold tracking-wider uppercase text-brand mb-1">📞 Call Us Directly</p>
+              <p className="text-xs font-bold tracking-wider uppercase text-brand mb-1 flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 shrink-0">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Call Us Directly
+              </p>
               <a href="tel:+97715201750" className="text-navy font-bold hover:text-brand transition-colors block">
                 01-5201750
               </a>
@@ -111,75 +132,69 @@ export default function Contact() {
 
           {/* Form */}
           <div className="md:col-span-3 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            {sent ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                </div>
-                <h3 className="font-heading font-bold text-xl text-navy mb-2">Message Sent!</h3>
-                <p className="text-gray-500 text-sm">Our team will get back to you within 24 hours.</p>
-                <button
-                  className="mt-6 text-brand font-semibold text-sm hover:underline"
-                  onClick={() => setSent(false)}
-                >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={onSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">Full Name *</label>
-                    <input type="text" name="name" required value={form.name} onChange={onChange} placeholder="Your name" className={inputCls} />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">Email *</label>
-                    <input type="email" name="email" required value={form.email} onChange={onChange} placeholder="you@company.com" className={inputCls} />
-                  </div>
-                </div>
+            <div className="flex items-center gap-2 mb-6">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L0 24l6.292-1.508A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.852 0-3.587-.5-5.089-1.371l-.361-.214-3.737.897.933-3.635-.235-.374A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+              </svg>
+              <h3 className="font-heading font-bold text-navy text-base">Send us a message via WhatsApp</h3>
+            </div>
+            <p className="text-gray-400 text-xs mb-5">Fill in the form below. When you click Send, WhatsApp will open with your message ready to send.</p>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">Phone</label>
-                    <input type="tel" name="phone" value={form.phone} onChange={onChange} placeholder="+977-98XXXXXXXX" className={inputCls} />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">Service</label>
-                    <select name="service" value={form.service} onChange={onChange} className={inputCls}>
-                      <option value="">Select a service</option>
-                      <option value="extinguisher">Fire Extinguishers</option>
-                      <option value="alarm">Alarm Systems</option>
-                      <option value="sprinkler">Sprinkler Systems</option>
-                      <option value="ppe">PPE / Safety Gear</option>
-                      <option value="consultation">Safety Consultation</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
-
+            <form onSubmit={onSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">Message *</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    value={form.message}
-                    onChange={onChange}
-                    placeholder="Describe your requirements or ask anything..."
-                    className={`${inputCls} resize-none`}
-                  />
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Your Name *</label>
+                  <input type="text" name="name" required value={form.name} onChange={onChange} placeholder="Full name" className={inputCls} />
                 </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Phone</label>
+                  <input type="tel" name="phone" value={form.phone} onChange={onChange} placeholder="98XXXXXXXX" className={inputCls} />
+                </div>
+              </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-px"
-                >
-                  Send Message
-                </button>
-              </form>
-            )}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Email</label>
+                  <input type="email" name="email" value={form.email} onChange={onChange} placeholder="you@email.com" className={inputCls} />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Service Needed</label>
+                  <select name="service" value={form.service} onChange={onChange} className={inputCls}>
+                    <option value="">Select a service</option>
+                    <option value="Fire Extinguishers">Fire Extinguishers</option>
+                    <option value="Fire Alarm System">Fire Alarm System</option>
+                    <option value="CCTV & Security">CCTV &amp; Security</option>
+                    <option value="EPABX System">EPABX System</option>
+                    <option value="Clean Agent Suppression">Clean Agent Suppression</option>
+                    <option value="Metal Detectors">Metal Detectors</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Message *</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  value={form.message}
+                  onChange={onChange}
+                  placeholder="Tell us what you need..."
+                  className={`${inputCls} resize-none`}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2.5 bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-green-200 hover:-translate-y-px"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L0 24l6.292-1.508A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.852 0-3.587-.5-5.089-1.371l-.361-.214-3.737.897.933-3.635-.235-.374A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                </svg>
+                Send via WhatsApp
+              </button>
+            </form>
           </div>
         </div>
       </div>
