@@ -45,7 +45,7 @@ export default function About() {
       <div className="md:hidden bg-navy px-4 py-8">
         <p className="text-brand text-xs font-bold tracking-widest uppercase mb-1">Who We Are</p>
         <h2 className="font-heading font-black text-2xl text-white leading-tight mb-3">
-          Lalitpur's Trusted<br />Safety Supplier
+          Nepal's Trusted<br />Safety Supplier
         </h2>
         <p className="text-white/70 text-xs leading-relaxed">
           Balkumari-3, Lalitpur · Certified fire fighting equipment, CCTV, alarms, EPABX &amp; metal detectors since 2008.
@@ -58,7 +58,7 @@ export default function About() {
         <div className="max-w-2xl mb-10 md:mb-16 hidden md:block">
           <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Who We Are</p>
           <h2 className="font-heading font-black text-5xl text-navy leading-tight mb-4">
-            Lalitpur's Trusted Safety &amp; Security Supplier
+            Nepal's Trusted Safety &amp; Security Supplier
           </h2>
           <p className="text-gray-500 leading-relaxed mb-3">
             Based in Balkumari-3, Lalitpur, Agni Safe &amp; Safety Center is led by Managing Director{' '}
