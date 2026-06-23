@@ -1,3 +1,5 @@
+import logo from '../assets/logo.png'
+
 const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Products', href: '#products' },
@@ -23,22 +25,8 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <a href="#home" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-brand rounded-lg flex items-center justify-center shadow-sm">
-                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-                  <defs>
-                    <linearGradient id="ffg" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#FCD34D"/>
-                      <stop offset="100%" stopColor="#fff"/>
-                    </linearGradient>
-                  </defs>
-                  <path fill="url(#ffg)" d="M16 2C13 8 9 12 9 18.5C9 23.7 12.1 28 16 28C19.9 28 23 23.7 23 18.5C23 15 21 12 19 10C19.5 12.5 18.5 14.5 16 16C18 13 18 8 16 2Z"/>
-                </svg>
-              </div>
-              <span className="flex flex-col leading-tight">
-                <span className="font-heading font-black text-navy text-base">NEFASS</span>
-                <span className="text-[0.6rem] font-bold tracking-widest uppercase text-brand">Fire &amp; Safety</span>
-              </span>
+            <a href="#home" className="inline-block mb-4">
+              <img src={logo} alt="NEFASS — New Everest Fire and Safety Suppliers" className="h-16 w-auto object-contain" />
             </a>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Balkumari-3, Lalitpur · Trusted supplier for fire fighting equipment,

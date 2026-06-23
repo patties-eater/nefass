@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logo from '../assets/logo.png'
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -24,22 +25,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2.5 shrink-0">
-          <div className="w-8 h-8 md:w-9 md:h-9 bg-brand rounded-lg flex items-center justify-center shadow-sm">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
-              <defs>
-                <linearGradient id="nfg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#FCD34D"/>
-                  <stop offset="100%" stopColor="#fff"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#nfg)" d="M16 2C13 8 9 12 9 18.5C9 23.7 12.1 28 16 28C19.9 28 23 23.7 23 18.5C23 15 21 12 19 10C19.5 12.5 18.5 14.5 16 16C18 13 18 8 16 2Z"/>
-            </svg>
-          </div>
-          <span className="flex flex-col leading-tight">
-            <span className="font-heading font-black text-navy text-sm md:text-base tracking-tight">NEFASS</span>
-            <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-widest uppercase text-brand" style={{marginTop: '-1px'}}>Fire &amp; Safety</span>
-          </span>
+        <a href="#home" className="shrink-0">
+          <img src={logo} alt="NEFASS — New Everest Fire and Safety Suppliers" className="h-10 md:h-11 w-auto object-contain" />
         </a>
 
         {/* Desktop nav links */}
