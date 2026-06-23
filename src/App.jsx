@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import FeaturedProducts from './components/FeaturedProducts'
 import Products from './components/Products'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -13,6 +14,7 @@ export default function App() {
       <Navbar />
       <main className="pb-16 md:pb-0">
         <Hero />
+        <FeaturedProducts />
         <Products />
         <About />
         <Contact />
