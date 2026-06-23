@@ -1,4 +1,4 @@
-import heroImg from '../assets/hero.png'
+const HERO_IMG = 'https://images.unsplash.com/photo-1513492448296-5f8b2ed8935a?w=800&h=500&fit=crop&auto=format&q=80'
 
 const brands = ['Uniview CCTV', 'Garrett Metal Detectors', 'Clean Agent Systems', 'EPABX Systems']
 
@@ -19,7 +19,7 @@ export default function Hero() {
       {/* ── Mobile hero image banner ── */}
       <div className="md:hidden relative h-56 overflow-hidden">
         <img
-          src={heroImg}
+          src={HERO_IMG}
           alt="Fire safety equipment — NEFASS Nepal"
           className="w-full h-full object-cover"
         />

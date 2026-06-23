@@ -59,18 +59,18 @@ export default function Products() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {visible.map(({ img, title, desc, price, tags, category }) => (
+          {visible.map(({ img, contain, title, desc, price, tags, category }) => (
             <div
               key={title}
               className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
-              <div className="relative h-32 sm:h-44 md:h-48 overflow-hidden bg-gray-100">
+              <div className={`relative h-32 sm:h-44 md:h-48 overflow-hidden ${contain ? 'bg-white' : 'bg-gray-100'}`}>
                 <img
                   src={img}
                   alt={title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-3 sm:p-4' : 'object-cover'}`}
                 />
                 <span className="absolute top-2 left-2 text-[0.55rem] sm:text-[0.65rem] font-bold tracking-wide uppercase bg-white/90 backdrop-blur-sm text-navy px-2 py-0.5 rounded-full shadow-sm">
                   {category}

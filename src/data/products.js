@@ -10,6 +10,7 @@ export const waLink = (product) =>
 export const products = [
   {
     img: imgFireExtinguisher,
+    contain: true,
     title: 'Fire Extinguishers',
     desc: 'New branded extinguishers and refilling service. Available in dry powder, CO₂, foam, and water types.',
     price: 'From NPR 1,500',
@@ -28,6 +29,7 @@ export const products = [
   },
   {
     img: imgHydrant,
+    contain: true,
     title: 'Fire Hose Reels',
     desc: 'Wall-mounted fire hose reels, nozzles, and cabinets for quick response during a fire.',
     price: 'From NPR 8,500',
@@ -46,6 +48,7 @@ export const products = [
   },
   {
     img: imgSmoke,
+    contain: true,
     title: 'Smoke & Heat Detectors',
     desc: 'Ceiling-mounted detectors that trigger alarms early — before a small fire becomes a big problem.',
     price: 'From NPR 2,500',
@@ -64,6 +67,7 @@ export const products = [
   },
   {
     img: imgCCTV,
+    contain: true,
     title: 'CCTV & Security Systems',
     desc: 'Uniview IP cameras, NVRs, and complete CCTV setups for homes, offices, and factories.',
     price: 'From NPR 5,500',

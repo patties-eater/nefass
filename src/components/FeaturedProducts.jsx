@@ -28,18 +28,18 @@ export default function FeaturedProducts() {
 
         {/* Grid — 2 cols on mobile, 4 on desktop */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-          {featured.map(({ img, title, desc, price, category }) => (
+          {featured.map(({ img, contain, title, desc, price, category }) => (
             <div
               key={title}
               className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
-              <div className="relative overflow-hidden bg-gray-50 aspect-square">
+              <div className={`relative overflow-hidden aspect-square ${contain ? 'bg-white' : 'bg-gray-50'}`}>
                 <img
                   src={img}
                   alt={title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-4' : 'object-cover'}`}
                 />
                 <span className="absolute top-2 left-2 text-[0.55rem] md:text-[0.6rem] font-bold tracking-wide uppercase bg-white/90 backdrop-blur-sm text-navy px-1.5 md:px-2 py-0.5 rounded-full shadow-sm">
                   {category}
