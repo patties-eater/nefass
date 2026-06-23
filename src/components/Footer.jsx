@@ -19,8 +19,8 @@ const services = [
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-24 md:pb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-2.5 mb-4">
@@ -74,9 +74,9 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-4">Our Services</h4>
-            <ul className="space-y-2.5">
+            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-2 gap-y-2.5">
               {services.map(s => (
-                <li key={s} className="text-gray-500 text-sm">{s}</li>
+                <li key={s} className="text-gray-500 text-xs sm:text-sm">{s}</li>
               ))}
             </ul>
           </div>

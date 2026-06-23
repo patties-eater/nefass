@@ -11,13 +11,13 @@ export default function Products() {
     <section id="products" className="py-14 md:py-24 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Our Products</p>
-          <h2 className="font-heading font-black text-4xl md:text-5xl text-navy leading-tight mb-4">
+          <h2 className="font-heading font-black text-3xl md:text-5xl text-navy leading-tight mb-3">
             Products &amp; Services
           </h2>
-          <p className="text-gray-500 max-w-lg mx-auto">
-            Everything for fire safety, CCTV, and office communication — supply, installation, and service.
+          <p className="text-gray-500 text-sm md:text-base max-w-lg mx-auto">
+            Fire safety, CCTV, and office communication — supply, installation, and service.
           </p>
         </div>
 
