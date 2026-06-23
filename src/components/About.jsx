@@ -54,22 +54,6 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-24">
 
-        {/* ── Desktop: story block ── */}
-        <div className="max-w-2xl mb-10 md:mb-16 hidden md:block">
-          <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Who We Are</p>
-          <h2 className="font-heading font-black text-5xl text-navy leading-tight mb-4">
-            Nepal's Trusted Safety &amp; Security Supplier
-          </h2>
-          <p className="text-gray-500 leading-relaxed mb-3">
-            Based in Balkumari-3, Lalitpur, Agni Safe &amp; Safety Center is led by Managing Director{' '}
-            <span className="font-semibold text-navy">Mena Gautam</span>. We specialize in fire fighting
-            equipment, electronic security systems, and telecom solutions across Nepal.
-          </p>
-          <p className="text-gray-500 leading-relaxed">
-            From supplying and refilling branded fire extinguishers and Uniview CCTV systems to installing
-            EPABX networks and Garrett metal detectors — reliable, certified products backed by hands-on support.
-          </p>
-        </div>
 
         {/* ── MD card — always side-by-side ── */}
         <div className="bg-navy rounded-2xl overflow-hidden mb-6 shadow-lg">
