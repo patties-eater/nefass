@@ -37,20 +37,14 @@ const values = [
   },
 ]
 
-const milestones = [
-  { year: '2008', text: 'Established in Balkumari, Lalitpur with fire fighting equipment supply and refilling.' },
-  { year: '2013', text: 'Expanded into CCTV installation and access control systems.' },
-  { year: '2018', text: 'Added EPABX and telecom, becoming a one-stop safety supplier.' },
-  { year: '2024', text: 'Serving 1,000+ clients across Nepal — hotels, factories, schools, hospitals.' },
-]
 
 export default function About() {
   return (
     <section id="about" className="py-12 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Story + Timeline */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start mb-10 md:mb-20">
+        {/* Story */}
+        <div className="max-w-2xl mb-10 md:mb-20">
           <div>
             <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Who We Are</p>
             <h2 className="font-heading font-black text-3xl md:text-5xl text-navy leading-tight mb-4">
@@ -101,26 +95,6 @@ export default function About() {
             >
               Talk to Our Team
             </a>
-          </div>
-
-          {/* Timeline */}
-          <div className="space-y-0 mt-2">
-            {milestones.map(({ year, text }, i) => (
-              <div key={year} className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-orange-50 border-2 border-brand text-brand flex items-center justify-center shrink-0 font-heading font-black text-[0.6rem] z-10">
-                    {year.slice(2)}
-                  </div>
-                  {i < milestones.length - 1 && (
-                    <div className="w-0.5 flex-1 bg-gray-100 my-1" style={{ minHeight: '1.75rem' }} />
-                  )}
-                </div>
-                <div className="pb-6 md:pb-8">
-                  <p className="font-heading font-bold text-navy text-sm mb-0.5">{year}</p>
-                  <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{text}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
