@@ -1,7 +1,12 @@
-import imgFireExtinguisher from '../assets/Fire_Extinguisher.png'
-import imgCCTV from '../assets/CCTV_Camera.png'
+import imgABC from '../assets/4kg ABC Type Fire Extinguisher.png'
+import imgCO2 from '../assets/2 Kg CO2 Type Fire Extinguisher.png'
+import imgFireStop from '../assets/500ml Fire Stop Extinguisher.png'
+import imgCleanAgent from '../assets/Clean agent suppression.png'
+import imgHose from '../assets/Fire_Hose_Pipe.png'
+import imgBlanket from '../assets/Sri Fire Blanket.png'
 import imgSmoke from '../assets/Smoke_Detector.png'
-import imgHydrant from '../assets/Hydrant_Valve.png'
+import imgCCTV from '../assets/CCTV_Camera.png'
+import imgMetal from '../assets/metalDetector.png'
 
 export const WA = '9779851120100'
 export const waLink = (product) =>
@@ -9,18 +14,39 @@ export const waLink = (product) =>
 
 export const products = [
   {
-    img: imgFireExtinguisher,
+    img: imgABC,
     contain: true,
-    title: 'Fire Extinguishers',
-    desc: 'New branded extinguishers and refilling service. Available in dry powder, CO₂, foam, and water types.',
+    title: 'ABC Dry Powder Extinguisher',
+    desc: 'Multi-purpose 4kg dry powder extinguisher for Class A, B, and C fires. Ideal for offices, kitchens, and vehicles.',
     price: 'From NPR 1,500',
-    tags: ['ABC Type', 'CO₂', 'Foam', 'Refilling'],
+    tags: ['4kg', 'ABC Type', 'Multi-Purpose', 'Refilling'],
     category: 'Fire Fighting',
     featured: true,
   },
   {
-    img: 'https://images.pexels.com/photos/7241774/pexels-photo-7241774.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    title: 'Clean Agent Suppression',
+    img: imgCO2,
+    contain: true,
+    title: 'CO₂ Fire Extinguisher',
+    desc: 'Clean CO₂ extinguisher — no residue, safe for electrical equipment, server rooms, and labs.',
+    price: 'From NPR 3,500',
+    tags: ['CO₂', '2kg', 'Electrical', 'Clean Agent'],
+    category: 'Fire Fighting',
+    featured: false,
+  },
+  {
+    img: imgFireStop,
+    contain: true,
+    title: '500ml Fire Stop Extinguisher',
+    desc: 'Compact aerosol-type fire extinguisher for cars, kitchens, and small spaces. Easy to use, no training needed.',
+    price: 'From NPR 800',
+    tags: ['Aerosol', 'Compact', 'Car', 'Kitchen'],
+    category: 'Fire Fighting',
+    featured: false,
+  },
+  {
+    img: imgCleanAgent,
+    contain: false,
+    title: 'Clean Agent Suppression System',
     desc: 'Automatic suppression systems for server rooms, offices, and sensitive equipment areas.',
     price: 'From NPR 45,000',
     tags: ['FM-200', 'Novec 1230', 'CO₂', 'Inergen'],
@@ -28,12 +54,22 @@ export const products = [
     featured: false,
   },
   {
-    img: imgHydrant,
+    img: imgHose,
     contain: true,
     title: 'Fire Hose Reels',
     desc: 'Wall-mounted fire hose reels, nozzles, and cabinets for quick response during a fire.',
     price: 'From NPR 8,500',
     tags: ['Hose Reels', 'Nozzles', 'Couplings', 'Cabinets'],
+    category: 'Fire Fighting',
+    featured: false,
+  },
+  {
+    img: imgBlanket,
+    contain: true,
+    title: 'Fire Blanket',
+    desc: 'Fiberglass fire blanket for smothering small fires and protecting people during evacuation.',
+    price: 'From NPR 1,200',
+    tags: ['Fiberglass', 'Kitchen', 'Emergency', 'Wall Mount'],
     category: 'Fire Fighting',
     featured: false,
   },
@@ -76,6 +112,16 @@ export const products = [
     featured: true,
   },
   {
+    img: imgMetal,
+    contain: false,
+    title: 'Handheld Metal Detectors',
+    desc: 'Garrett security wands for hotels, events, schools, and entry checkpoints.',
+    price: 'From NPR 6,500',
+    tags: ['Garrett', 'Portable', 'Events', 'Security'],
+    category: 'Security',
+    featured: false,
+  },
+  {
     img: 'https://images.pexels.com/photos/17636234/pexels-photo-17636234.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     title: 'EPABX Phone Systems',
     desc: 'Office telephone systems that connect all your staff internally and reduce call costs.',
@@ -83,14 +129,5 @@ export const products = [
     tags: ['EPABX', 'IP PBX', 'Intercom', 'Corporate'],
     category: 'Telecom',
     featured: true,
-  },
-  {
-    img: 'https://images.pexels.com/photos/32027096/pexels-photo-32027096.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    title: 'Handheld Metal Detectors',
-    desc: 'Garrett security wands for hotels, events, schools, and entry checkpoints.',
-    price: 'From NPR 6,500',
-    tags: ['Garrett', 'Portable', 'Events', 'Security'],
-    category: 'Security',
-    featured: false,
   },
 ]

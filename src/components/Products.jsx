@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { products, WA, waLink } from '../data/products'
-import imgFire from '../assets/Fire_Extinguisher.png'
+import imgFire from '../assets/4kg ABC Type Fire Extinguisher.png'
 import imgCCTV from '../assets/CCTV_Camera.png'
 import imgSmoke from '../assets/Smoke_Detector.png'
 
