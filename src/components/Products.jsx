@@ -8,10 +8,20 @@ const WA_SVG = (
 )
 
 const categories = ['All', 'Fire Fighting', 'Alarms & Detection', 'Security', 'Telecom']
+const INITIAL = 4
 
 export default function Products() {
   const [active, setActive] = useState('All')
+  const [showAll, setShowAll] = useState(false)
+
   const filtered = active === 'All' ? products : products.filter(p => p.category === active)
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL)
+  const remaining = filtered.length - INITIAL
+
+  const changeCategory = (cat) => {
+    setActive(cat)
+    setShowAll(false)
+  }
 
   return (
     <section id="products" className="py-12 md:py-24 bg-gray-50">
@@ -34,7 +44,7 @@ export default function Products() {
             {categories.map(cat => (
               <button
                 key={cat}
-                onClick={() => setActive(cat)}
+                onClick={() => changeCategory(cat)}
                 className={`text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border whitespace-nowrap transition-all duration-150 ${
                   active === cat
                     ? 'bg-brand text-white border-brand shadow-sm'
@@ -47,9 +57,9 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Grid — 2 cols on mobile, 3 on desktop */}
+        {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {filtered.map(({ img, title, desc, price, tags, category }) => (
+          {visible.map(({ img, title, desc, price, tags, category }) => (
             <div
               key={title}
               className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
@@ -72,28 +82,16 @@ export default function Products() {
                 <h3 className="font-heading font-bold text-navy text-xs sm:text-base mb-1 group-hover:text-brand transition-colors leading-snug">
                   {title}
                 </h3>
-
-                {/* Description — desktop only */}
                 <p className="text-gray-500 text-sm leading-relaxed mb-3 flex-1 hidden sm:block">{desc}</p>
-
-                {/* Tags — desktop only */}
                 <div className="flex-wrap gap-1.5 mb-4 hidden sm:flex">
                   {tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="text-[0.65rem] font-semibold bg-orange-50 text-brand border border-orange-100 px-2 py-0.5 rounded-full"
-                    >
+                    <span key={tag} className="text-[0.65rem] font-semibold bg-orange-50 text-brand border border-orange-100 px-2 py-0.5 rounded-full">
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                {/* Price + CTA */}
                 <div className="flex items-center justify-between gap-1 pt-2 border-t border-gray-100 mt-auto">
-                  <div>
-                    <p className="text-[0.6rem] font-semibold text-gray-400 uppercase tracking-wide hidden sm:block">Price</p>
-                    <p className="font-heading font-black text-brand text-xs sm:text-lg leading-tight">{price}</p>
-                  </div>
+                  <p className="font-heading font-black text-brand text-xs sm:text-lg leading-tight">{price}</p>
                   <a
                     href={waLink(title)}
                     target="_blank"
@@ -110,14 +108,41 @@ export default function Products() {
           ))}
         </div>
 
+        {/* Load more / Show less */}
+        {filtered.length > INITIAL && (
+          <div className="mt-6 md:mt-10 text-center">
+            {!showAll ? (
+              <button
+                onClick={() => setShowAll(true)}
+                className="inline-flex items-center gap-2 bg-white border-2 border-gray-200 hover:border-brand text-navy hover:text-brand font-bold px-6 py-3 rounded-lg transition-all duration-200 text-sm"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+                View {remaining} More {remaining === 1 ? 'Product' : 'Products'}
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowAll(false)}
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-navy font-semibold text-sm transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+                Show Less
+              </button>
+            )}
+          </div>
+        )}
+
         {/* Bottom CTA */}
-        <div className="mt-8 md:mt-14 text-center">
-          <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">Need something not listed? We can source it for you.</p>
+        <div className="mt-8 md:mt-10 text-center border-t border-gray-200 pt-8">
+          <p className="text-gray-400 text-xs md:text-sm mb-3">Need something not listed? We can source it for you.</p>
           <a
             href={`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I need a product that is not listed on your website. Can you help?')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-md shadow-brand/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/30 text-sm"
+            className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-6 md:px-8 py-3 rounded-lg shadow-md shadow-brand/20 transition-all duration-200 hover:-translate-y-0.5 text-sm"
           >
             Contact Us on WhatsApp
           </a>
