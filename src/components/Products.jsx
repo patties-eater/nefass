@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { products, WA, waLink } from '../data/products'
+import imgFire from '../assets/Fire_Extinguisher.png'
+import imgCCTV from '../assets/CCTV_Camera.png'
+import imgSmoke from '../assets/Smoke_Detector.png'
 
 const WA_SVG = (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -7,7 +10,28 @@ const WA_SVG = (
   </svg>
 )
 
-const categories = ['All', 'Fire Fighting', 'Alarms & Detection', 'Security', 'Telecom']
+const categories = [
+  {
+    label: 'All',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+    ),
+  },
+  { label: 'Fire Fighting', img: imgFire },
+  { label: 'Alarms & Detection', img: imgSmoke },
+  { label: 'Security', img: imgCCTV },
+  {
+    label: 'Telecom',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    ),
+  },
+]
 const INITIAL = 4
 
 export default function Products() {
@@ -38,22 +62,38 @@ export default function Products() {
           </p>
         </div>
 
-        {/* Category filter — horizontal scroll on mobile */}
+        {/* Category filter — image circles */}
         <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 md:mb-10">
-          <div className="flex gap-2 sm:flex-wrap sm:justify-center w-max sm:w-auto">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => changeCategory(cat)}
-                className={`text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border whitespace-nowrap transition-all duration-150 ${
-                  active === cat
-                    ? 'bg-brand text-white border-brand shadow-sm'
-                    : 'bg-white text-gray-500 border-gray-200 hover:border-brand hover:text-brand'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="flex gap-4 sm:gap-6 justify-start sm:justify-center w-max sm:w-auto pb-1">
+            {categories.map(({ label, img, icon }) => {
+              const isActive = active === label
+              return (
+                <button
+                  key={label}
+                  onClick={() => changeCategory(label)}
+                  className="flex flex-col items-center gap-2 group"
+                >
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
+                    isActive
+                      ? 'border-brand bg-orange-50 scale-105 shadow-md shadow-brand/20'
+                      : 'border-gray-200 bg-white hover:border-brand/50 hover:scale-105'
+                  }`}>
+                    {img ? (
+                      <img src={img} alt={label} className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-sm" />
+                    ) : (
+                      <span className={isActive ? 'text-brand' : 'text-gray-400 group-hover:text-brand'}>
+                        {icon}
+                      </span>
+                    )}
+                  </div>
+                  <span className={`text-[0.65rem] sm:text-xs font-bold tracking-wide text-center leading-tight ${
+                    isActive ? 'text-brand' : 'text-gray-500'
+                  }`}>
+                    {label}
+                  </span>
+                </button>
+              )
+            })}
           </div>
         </div>
 
