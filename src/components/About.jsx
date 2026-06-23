@@ -46,10 +46,10 @@ const milestones = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-14 md:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Story + Timeline */}
-        <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-14 md:mb-20">
           <div>
             <p className="text-xs font-bold tracking-widest uppercase text-brand mb-3">Who We Are</p>
             <h2 className="font-heading font-black text-4xl md:text-5xl text-navy leading-tight mb-6">

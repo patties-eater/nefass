@@ -86,8 +86,8 @@ export default function Products() {
   const filtered = active === 'All' ? products : products.filter(p => p.category === active)
 
   return (
-    <section id="products" className="py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="products" className="py-14 md:py-24 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Our Products</p>

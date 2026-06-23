@@ -9,7 +9,6 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
@@ -17,19 +16,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const close = () => setMenuOpen(false)
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
         scrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16 gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2.5 shrink-0" onClick={close}>
-          <div className="w-9 h-9 bg-brand rounded-lg flex items-center justify-center shadow-sm">
-            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="#home" className="flex items-center gap-2.5 shrink-0">
+          <div className="w-8 h-8 md:w-9 md:h-9 bg-brand rounded-lg flex items-center justify-center shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
               <defs>
                 <linearGradient id="nfg" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#FCD34D"/>
@@ -40,12 +37,12 @@ export default function Navbar() {
             </svg>
           </div>
           <span className="flex flex-col leading-tight">
-            <span className="font-heading font-black text-navy text-base tracking-tight">NEFASS</span>
-            <span className="text-[0.6rem] font-bold tracking-widest uppercase text-brand" style={{marginTop: '-1px'}}>Fire &amp; Safety</span>
+            <span className="font-heading font-black text-navy text-sm md:text-base tracking-tight">NEFASS</span>
+            <span className="text-[0.55rem] md:text-[0.6rem] font-bold tracking-widest uppercase text-brand" style={{marginTop: '-1px'}}>Fire &amp; Safety</span>
           </span>
         </a>
 
-        {/* Desktop nav */}
+        {/* Desktop nav links */}
         <nav className="hidden md:flex items-center gap-1">
           {links.map(({ label, href }) => (
             <a
@@ -58,6 +55,7 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* Desktop CTA */}
         <a
           href="#contact"
           className="hidden md:inline-flex items-center gap-1.5 bg-brand hover:bg-brand-dark text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-px shrink-0"
@@ -65,50 +63,18 @@ export default function Navbar() {
           Contact Us
         </a>
 
-        {/* Hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-1 ml-auto"
-          aria-label="Toggle menu"
-          onClick={() => setMenuOpen(o => !o)}
+        {/* Mobile: call button shown inline in navbar */}
+        <a
+          href="tel:+97715201750"
+          className="md:hidden flex items-center gap-1.5 bg-brand text-white text-xs font-bold px-3.5 py-2 rounded-lg"
+          aria-label="Call us"
         >
-          <span className={`block w-5 h-0.5 bg-navy rounded transition-all duration-200 ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-navy rounded transition-all duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-navy rounded transition-all duration-200 ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
-        </button>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Call Now
+        </a>
       </div>
-
-      {/* Mobile drawer */}
-      {menuOpen && (
-        <>
-          <div className="fixed inset-0 bg-black/30 z-40" onClick={close} />
-          <nav className="fixed top-0 right-0 h-dvh w-64 bg-white z-50 shadow-2xl flex flex-col pt-20 px-6 gap-1">
-            <button
-              className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-1"
-              onClick={close}
-              aria-label="Close"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </button>
-            {links.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-base font-medium text-gray-700 hover:text-brand hover:bg-orange-50 px-4 py-3 rounded-lg transition-colors"
-                onClick={close}
-              >
-                {label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="mt-4 bg-brand hover:bg-brand-dark text-white font-bold px-5 py-3 rounded-lg text-center transition-colors"
-              onClick={close}
-            >
-              Contact Us
-            </a>
-          </nav>
-        </>
-      )}
     </header>
   )
 }

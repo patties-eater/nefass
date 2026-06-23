@@ -6,18 +6,20 @@ const quickLinks = [
 ]
 
 const services = [
-  'Fire Extinguishers',
-  'Alarm Systems',
-  'Sprinkler Systems',
-  'PPE & Safety Gear',
-  'Emergency Lighting',
-  'Safety Consultation',
+  'Fire Extinguishers & Refilling',
+  'Fire Alarm Systems',
+  'CCTV & Security Cameras',
+  'Clean Agent Suppression',
+  'EPABX Phone Systems',
+  'Metal Detectors',
+  'Fire Hose Reels',
+  'Smoke & Heat Detectors',
 ]
 
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-6 pt-14 pb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="lg:col-span-1">

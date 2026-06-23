@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="home" className="relative bg-white overflow-hidden pt-16">
+    <section id="home" className="relative bg-white overflow-hidden pt-14 md:pt-16">
       {/* Subtle decorative bg */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-140 h-140 bg-orange-50 rounded-full blur-3xl opacity-60 translate-x-1/4 -translate-y-1/4" />
@@ -11,7 +11,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-28">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-brand text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-full mb-8">
@@ -22,19 +22,19 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-navy leading-[1.1] mb-6">
+          <h1 className="font-heading font-black text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl text-navy leading-[1.1] mb-5">
             Fire. Security.<br />
             <span className="text-brand">Total Protection.</span>
           </h1>
 
-          <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
+          <p className="text-gray-500 text-base md:text-xl leading-relaxed max-w-xl mb-8">
             New Everest Fire and Safety Suppliers — certified fire fighting equipment,
             advanced CCTV &amp; security systems, EPABX solutions, and expert on-site
             service keeping your people and property safe across Nepal.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mb-14">
+          <div className="flex flex-wrap gap-3 mb-10">
             <a
               href="#products"
               className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-brand/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30"
@@ -70,8 +70,8 @@ export default function Hero() {
       </div>
 
       {/* Trust strip */}
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center gap-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
+      <div className="border-t border-gray-100 bg-gray-50 overflow-x-auto">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4 md:gap-6 text-xs font-semibold text-gray-400 uppercase tracking-widest whitespace-nowrap">
           <span>Authorised Supplier of:</span>
           {['Uniview CCTV', 'Garrett Metal Detectors', 'Clean Agent Systems', 'EPABX Systems'].map(c => (
             <span key={c} className="flex items-center gap-1.5">

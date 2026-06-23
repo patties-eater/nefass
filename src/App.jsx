@@ -5,12 +5,13 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import MobileNav from './components/MobileNav'
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pb-16 md:pb-0">
         <Hero />
         <Products />
         <About />
@@ -18,6 +19,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <MobileNav />
     </>
   )
 }
