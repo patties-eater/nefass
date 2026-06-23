@@ -34,7 +34,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="flex flex-col leading-tight">
-                <span className="font-heading font-black text-navy text-base">Everest</span>
+                <span className="font-heading font-black text-navy text-base">NEFASS</span>
                 <span className="text-[0.6rem] font-bold tracking-widest uppercase text-brand">Fire &amp; Safety</span>
               </span>
             </a>
@@ -125,7 +125,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} Everest Fire and Safety Suppliers. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} New Everest Fire and Safety Suppliers (NEFASS). All rights reserved.</p>
           <p>Certified Fire Safety Solutions · Nepal</p>
         </div>
       </div>

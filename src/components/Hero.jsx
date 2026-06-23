@@ -18,7 +18,7 @@ export default function Hero() {
             <svg width="12" height="12" viewBox="0 0 32 32" fill="none">
               <path fill="#E67E22" d="M16 2C13 8 9 12 9 18.5C9 23.7 12.1 28 16 28C19.9 28 23 23.7 23 18.5C23 15 21 12 19 10C19.5 12.5 18.5 14.5 16 16C18 13 18 8 16 2Z"/>
             </svg>
-            Everest Fire &amp; Safety · Balkumari-3, Lalitpur
+            NEFASS · Balkumari-3, Lalitpur
           </div>
 
           {/* Headline */}
@@ -28,9 +28,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
-            Everest Fire &amp; Safety supplies certified fire fighting equipment,
+            New Everest Fire and Safety Suppliers — certified fire fighting equipment,
             advanced CCTV &amp; security systems, EPABX solutions, and expert on-site
-            service — keeping your people and property safe around the clock.
+            service keeping your people and property safe across Nepal.
           </p>
 
           {/* CTAs */}

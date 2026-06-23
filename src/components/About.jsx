@@ -114,7 +114,7 @@ export default function About() {
         <div className="border-t border-gray-100 pt-16">
           <p className="text-xs font-bold tracking-widest uppercase text-brand mb-3 text-center">Our Promise</p>
           <h3 className="font-heading font-black text-2xl md:text-3xl text-navy text-center mb-10">
-            Why Choose Everest?
+            Why Choose Us?
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon, title, desc }) => (

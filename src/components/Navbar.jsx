@@ -40,7 +40,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className="flex flex-col leading-tight">
-            <span className="font-heading font-black text-navy text-base tracking-tight">Everest</span>
+            <span className="font-heading font-black text-navy text-base tracking-tight">NEFASS</span>
             <span className="text-[0.6rem] font-bold tracking-widest uppercase text-brand" style={{marginTop: '-1px'}}>Fire &amp; Safety</span>
           </span>
         </a>
