@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 md:h-16">
         {/* Logo */}
         <a href="#home" className="shrink-0">
-          <img src={logo} alt="NEFASS — New Everest Fire and Safety Suppliers" className="h-10 md:h-11 w-auto object-contain" />
+          <img src={logo} alt="NEFASS — New Everest Fire and Safety Suppliers" className="h-13 md:h-14 w-auto object-contain" />
         </a>
 
         {/* Desktop nav links */}
