@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { products, WA, waLink } from '../data/products'
 import imgFire from '../assets/4kg ABC Type Fire Extinguisher.png'
 import imgCCTV from '../assets/CCTV_Camera.png'
@@ -34,17 +34,36 @@ const categories = [
 ]
 const INITIAL = 4
 
+function SkeletonCard() {
+  return (
+    <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col animate-pulse">
+      <div className="h-32 sm:h-44 md:h-48 bg-gray-200" />
+      <div className="p-3 sm:p-5 flex flex-col gap-2 flex-1">
+        <div className="h-3 bg-gray-200 rounded w-3/4" />
+        <div className="h-3 bg-gray-100 rounded w-1/2" />
+        <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+          <div className="h-4 bg-gray-200 rounded w-20" />
+          <div className="h-7 w-14 bg-gray-200 rounded-lg" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Products() {
   const [active, setActive] = useState('All')
   const [showAll, setShowAll] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const filtered = active === 'All' ? products : products.filter(p => p.category === active)
   const visible = showAll ? filtered : filtered.slice(0, INITIAL)
   const remaining = filtered.length - INITIAL
 
   const changeCategory = (cat) => {
+    setLoading(true)
     setActive(cat)
     setShowAll(false)
+    setTimeout(() => setLoading(false), 350)
   }
 
   return (
@@ -64,30 +83,41 @@ export default function Products() {
 
         {/* Category filter — image circles */}
         <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 md:mb-10">
-          <div className="flex gap-4 sm:gap-6 justify-start sm:justify-center w-max sm:w-auto pb-1">
+          <div className="flex gap-5 sm:gap-8 justify-start sm:justify-center w-max sm:w-auto py-2 px-1">
             {categories.map(({ label, img, icon }) => {
               const isActive = active === label
               return (
                 <button
                   key={label}
                   onClick={() => changeCategory(label)}
-                  className="flex flex-col items-center gap-2 group"
+                  className="flex flex-col items-center gap-2.5 group"
                 >
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
-                    isActive
-                      ? 'border-brand bg-orange-50 scale-105 shadow-md shadow-brand/20'
-                      : 'border-gray-200 bg-white hover:border-brand/50 hover:scale-105'
-                  }`}>
+                  <div
+                    className={`w-18 h-18 sm:w-22 sm:h-22 rounded-full flex items-center justify-center transition-all duration-250 ${
+                      isActive ? 'scale-110 bg-orange-50' : 'bg-gray-50 hover:bg-orange-50/50 hover:scale-105'
+                    }`}
+                    style={
+                      isActive
+                        ? { boxShadow: '0 0 0 3px #fff, 0 0 0 5px #E67E22, 0 6px 18px rgba(230,126,34,0.25)' }
+                        : { boxShadow: 'inset 0 1px 4px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06)' }
+                    }
+                  >
                     {img ? (
-                      <img src={img} alt={label} className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-sm" />
+                      <img
+                        src={img}
+                        alt={label}
+                        className={`object-contain transition-all duration-250 ${
+                          isActive ? 'w-12 h-12 sm:w-14 sm:h-14 drop-shadow-md' : 'w-10 h-10 sm:w-12 sm:h-12 drop-shadow-sm'
+                        }`}
+                      />
                     ) : (
-                      <span className={isActive ? 'text-brand' : 'text-gray-400 group-hover:text-brand'}>
+                      <span className={`transition-colors duration-200 ${isActive ? 'text-brand' : 'text-gray-400 group-hover:text-brand'}`}>
                         {icon}
                       </span>
                     )}
                   </div>
-                  <span className={`text-[0.65rem] sm:text-xs font-bold tracking-wide text-center leading-tight ${
-                    isActive ? 'text-brand' : 'text-gray-500'
+                  <span className={`text-[0.65rem] sm:text-xs font-bold tracking-wide text-center leading-tight transition-colors duration-200 ${
+                    isActive ? 'text-brand' : 'text-gray-400 group-hover:text-gray-600'
                   }`}>
                     {label}
                   </span>
@@ -99,7 +129,9 @@ export default function Products() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {visible.map(({ img, contain, title, desc, price, tags, category }) => (
+          {loading
+            ? Array.from({ length: INITIAL }).map((_, i) => <SkeletonCard key={i} />)
+            : visible.map(({ img, contain, title, desc, price, tags, category }) => (
             <div
               key={title}
               className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
@@ -149,7 +181,7 @@ export default function Products() {
         </div>
 
         {/* Load more / Show less */}
-        {filtered.length > INITIAL && (
+        {!loading && filtered.length > INITIAL && (
           <div className="mt-6 md:mt-10 text-center">
             {!showAll ? (
               <button
