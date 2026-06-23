@@ -1,9 +1,4 @@
-const stats = [
-  { num: '15+', label: 'Years Experience' },
-  { num: '500+', label: 'Products & Services' },
-  { num: '1,000+', label: 'Happy Clients' },
-  { num: '24/7', label: 'Support' },
-]
+import heroImg from '../assets/hero.png'
 
 const brands = ['Uniview CCTV', 'Garrett Metal Detectors', 'Clean Agent Systems', 'EPABX Systems']
 
@@ -24,15 +19,12 @@ export default function Hero() {
       {/* ── Mobile hero image banner ── */}
       <div className="md:hidden relative h-56 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1513492448296-5f8b2ed8935a?w=800&h=500&fit=crop&auto=format&q=80"
+          src={heroImg}
           alt="Fire safety equipment — NEFASS Nepal"
           className="w-full h-full object-cover"
         />
-        {/* gradient overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/50 to-transparent" />
-
-        {/* Badge pinned to bottom-left of image */}
-        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2">
+        <div className="absolute bottom-4 left-4">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-[0.65rem] font-bold tracking-wider uppercase px-3 py-1.5 rounded-full">
             <svg width="10" height="10" viewBox="0 0 32 32" fill="none">
               <path fill="#E67E22" d="M16 2C13 8 9 12 9 18.5C9 23.7 12.1 28 16 28C19.9 28 23 23.7 23 18.5C23 15 21 12 19 10C19.5 12.5 18.5 14.5 16 16C18 13 18 8 16 2Z"/>
@@ -44,7 +36,7 @@ export default function Hero() {
 
       {/* ── Main content ── */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-8 md:py-28">
-        <div className="max-w-3xl md:text-left">
+        <div className="max-w-3xl">
 
           {/* Badge — desktop only */}
           <div className="hidden md:inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-brand text-xs font-bold tracking-wider uppercase px-4 py-2 rounded-full mb-8">
@@ -60,8 +52,8 @@ export default function Hero() {
             <span className="text-brand">Total Protection.</span>
           </h1>
 
-          {/* Description — shorter on mobile */}
-          <p className="text-gray-500 text-sm md:text-xl leading-relaxed max-w-xl mb-6 md:mb-8">
+          {/* Description */}
+          <p className="text-gray-500 text-sm md:text-xl leading-relaxed max-w-xl mb-6 md:mb-10">
             <span className="hidden sm:inline">New Everest Fire and Safety Suppliers — certified fire fighting equipment,
             advanced CCTV &amp; security systems, EPABX solutions, and expert on-site
             service keeping your people and property safe across Nepal.</span>
@@ -69,8 +61,8 @@ export default function Hero() {
             Supply, installation &amp; service across Nepal.</span>
           </p>
 
-          {/* CTA buttons — stacked on mobile, side by side on sm+ */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8 md:mb-10">
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="#products"
               className="inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-brand/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand/30 text-sm md:text-base"
@@ -82,7 +74,7 @@ export default function Hero() {
             </a>
             <a
               href="tel:+97715201750"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-navy font-semibold px-7 py-3.5 rounded-lg border-2 border-gray-200 hover:border-brand transition-all duration-200 hover:-translate-y-0.5 text-sm md:text-base sm:hidden"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-navy font-semibold px-7 py-3.5 rounded-lg border-2 border-gray-200 hover:border-brand transition-all duration-200 hover:-translate-y-0.5 text-sm sm:hidden"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-brand">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -95,16 +87,6 @@ export default function Hero() {
             >
               Talk to Us
             </a>
-          </div>
-
-          {/* Stats — 2×2 grid on mobile, flex row on desktop */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-x-10 pt-6 border-t border-gray-100">
-            {stats.map(({ num, label }) => (
-              <div key={label} className="flex flex-col">
-                <div className="font-heading font-black text-2xl md:text-3xl text-brand">{num}</div>
-                <div className="text-xs md:text-sm text-gray-400 font-medium mt-0.5">{label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

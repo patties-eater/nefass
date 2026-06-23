@@ -1,10 +1,3 @@
-const stats = [
-  { num: '15+', label: 'Years' },
-  { num: '500+', label: 'Products' },
-  { num: '1,000+', label: 'Clients' },
-  { num: '24/7', label: 'Support' },
-]
-
 const values = [
   {
     icon: (
@@ -51,18 +44,9 @@ export default function About() {
       {/* ── Mobile-only company banner ── */}
       <div className="md:hidden bg-navy px-4 py-8">
         <p className="text-brand text-xs font-bold tracking-widest uppercase mb-1">Who We Are</p>
-        <h2 className="font-heading font-black text-2xl text-white leading-tight mb-4">
+        <h2 className="font-heading font-black text-2xl text-white leading-tight mb-3">
           Lalitpur's Trusted<br />Safety Supplier
         </h2>
-        {/* Stats row */}
-        <div className="grid grid-cols-4 gap-2 mb-4">
-          {stats.map(({ num, label }) => (
-            <div key={label} className="text-center bg-white/10 rounded-xl py-2.5">
-              <div className="font-heading font-black text-brand text-lg leading-none">{num}</div>
-              <div className="text-white/70 text-[0.6rem] font-semibold mt-0.5">{label}</div>
-            </div>
-          ))}
-        </div>
         <p className="text-white/70 text-xs leading-relaxed">
           Balkumari-3, Lalitpur · Certified fire fighting equipment, CCTV, alarms, EPABX &amp; metal detectors since 2008.
         </p>

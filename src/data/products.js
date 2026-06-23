@@ -1,10 +1,15 @@
+import imgFireExtinguisher from '../assets/Fire_Extinguisher.png'
+import imgCCTV from '../assets/CCTV_Camera.png'
+import imgSmoke from '../assets/Smoke_Detector.png'
+import imgHydrant from '../assets/Hydrant_Valve.png'
+
 export const WA = '9779851120100'
 export const waLink = (product) =>
   `https://wa.me/${WA}?text=${encodeURIComponent(`Hello! I am interested in "${product}". Please share the price and details.`)}`
 
 export const products = [
   {
-    img: 'https://images.unsplash.com/photo-1513492448296-5f8b2ed8935a?w=600&h=400&fit=crop&auto=format&q=80',
+    img: imgFireExtinguisher,
     title: 'Fire Extinguishers',
     desc: 'New branded extinguishers and refilling service. Available in dry powder, CO₂, foam, and water types.',
     price: 'From NPR 1,500',
@@ -22,7 +27,7 @@ export const products = [
     featured: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1560517734-124ebe0ad826?w=600&h=400&fit=crop&auto=format&q=80',
+    img: imgHydrant,
     title: 'Fire Hose Reels',
     desc: 'Wall-mounted fire hose reels, nozzles, and cabinets for quick response during a fire.',
     price: 'From NPR 8,500',
@@ -40,7 +45,7 @@ export const products = [
     featured: true,
   },
   {
-    img: 'https://images.pexels.com/photos/8381832/pexels-photo-8381832.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    img: imgSmoke,
     title: 'Smoke & Heat Detectors',
     desc: 'Ceiling-mounted detectors that trigger alarms early — before a small fire becomes a big problem.',
     price: 'From NPR 2,500',
@@ -58,7 +63,7 @@ export const products = [
     featured: false,
   },
   {
-    img: 'https://images.unsplash.com/photo-1549109926-58f039549485?w=600&h=400&fit=crop&auto=format&q=80',
+    img: imgCCTV,
     title: 'CCTV & Security Systems',
     desc: 'Uniview IP cameras, NVRs, and complete CCTV setups for homes, offices, and factories.',
     price: 'From NPR 5,500',
