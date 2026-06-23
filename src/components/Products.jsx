@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { products, WA, waLink } from '../data/products'
-import imgFire from '../assets/4kg ABC Type Fire Extinguisher.png'
-import imgCCTV from '../assets/CCTV_Camera.png'
-import imgSmoke from '../assets/Smoke_Detector.png'
 
 const WA_SVG = (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -10,29 +7,18 @@ const WA_SVG = (
   </svg>
 )
 
-const categories = [
-  {
-    label: 'All',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-      </svg>
-    ),
-  },
-  { label: 'Fire Fighting', img: imgFire },
-  { label: 'Alarms & Detection', img: imgSmoke },
-  { label: 'Security', img: imgCCTV },
-  {
-    label: 'Telecom',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-    ),
-  },
+const CATEGORIES = [
+  { label: 'All', emoji: '🔍' },
+  { label: 'Fire Safety', emoji: '🔥' },
+  { label: 'Industrial Safety', emoji: '🦺' },
+  { label: 'Road Safety', emoji: '🚧' },
+  { label: 'Rescue Equipment', emoji: '⛑️' },
+  { label: 'Marine Safety', emoji: '⚓' },
+  { label: 'Security Systems', emoji: '📷' },
+  { label: 'Safety Signage', emoji: '⚠️' },
 ]
-const INITIAL = 4
+
+const INITIAL = 6
 
 function SkeletonCard() {
   return (
@@ -60,6 +46,7 @@ export default function Products() {
   const remaining = filtered.length - INITIAL
 
   const changeCategory = (cat) => {
+    if (cat === active) return
     setLoading(true)
     setActive(cat)
     setShowAll(false)
@@ -71,113 +58,108 @@ export default function Products() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="text-center mb-6 md:mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <p className="text-xs font-bold tracking-widest uppercase text-brand mb-2">Our Products</p>
           <h2 className="font-heading font-black text-3xl md:text-5xl text-navy leading-tight mb-2">
             Products &amp; Services
           </h2>
-          <p className="text-gray-500 text-sm md:text-base max-w-lg mx-auto hidden sm:block">
-            Fire safety, CCTV, and office communication — supply, installation, and service.
+          <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto hidden sm:block">
+            Fire safety, industrial PPE, security systems, and more — supply, installation, and on-site service.
           </p>
         </div>
 
-        {/* Category filter — image circles */}
-        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 md:mb-10">
-          <div className="flex gap-5 sm:gap-8 justify-start sm:justify-center w-max sm:w-auto py-2 px-1">
-            {categories.map(({ label, img, icon }) => {
+        {/* Category pill tabs — horizontal scroll on mobile */}
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 md:mb-10">
+          <div className="flex gap-2 w-max sm:w-auto sm:flex-wrap sm:justify-center pb-1">
+            {CATEGORIES.map(({ label, emoji }) => {
               const isActive = active === label
               return (
                 <button
                   key={label}
                   onClick={() => changeCategory(label)}
-                  className="flex flex-col items-center gap-2.5 group"
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                    isActive
+                      ? 'bg-brand text-white shadow-md shadow-brand/30 scale-105'
+                      : 'bg-white text-gray-500 border border-gray-200 hover:border-brand hover:text-brand hover:shadow-sm'
+                  }`}
                 >
-                  <div
-                    className={`w-18 h-18 sm:w-22 sm:h-22 rounded-full flex items-center justify-center transition-all duration-250 ${
-                      isActive ? 'scale-110 bg-orange-50' : 'bg-gray-50 hover:bg-orange-50/50 hover:scale-105'
-                    }`}
-                    style={
-                      isActive
-                        ? { boxShadow: '0 0 0 3px #fff, 0 0 0 5px #E67E22, 0 6px 18px rgba(230,126,34,0.25)' }
-                        : { boxShadow: 'inset 0 1px 4px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06)' }
-                    }
-                  >
-                    {img ? (
-                      <img
-                        src={img}
-                        alt={label}
-                        className={`object-contain transition-all duration-250 ${
-                          isActive ? 'w-12 h-12 sm:w-14 sm:h-14 drop-shadow-md' : 'w-10 h-10 sm:w-12 sm:h-12 drop-shadow-sm'
-                        }`}
-                      />
-                    ) : (
-                      <span className={`transition-colors duration-200 ${isActive ? 'text-brand' : 'text-gray-400 group-hover:text-brand'}`}>
-                        {icon}
-                      </span>
-                    )}
-                  </div>
-                  <span className={`text-[0.65rem] sm:text-xs font-bold tracking-wide text-center leading-tight transition-colors duration-200 ${
-                    isActive ? 'text-brand' : 'text-gray-400 group-hover:text-gray-600'
-                  }`}>
-                    {label}
-                  </span>
+                  <span>{emoji}</span>
+                  {label}
                 </button>
               )
             })}
           </div>
         </div>
 
+        {/* Active category count */}
+        {!loading && (
+          <p className="text-xs text-gray-400 font-medium mb-4 sm:text-center">
+            {filtered.length} product{filtered.length !== 1 ? 's' : ''} in <span className="text-navy font-bold">{active}</span>
+          </p>
+        )}
+
         {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {loading
             ? Array.from({ length: INITIAL }).map((_, i) => <SkeletonCard key={i} />)
-            : visible.map(({ img, contain, title, desc, price, tags, category }) => (
-            <div
-              key={title}
-              className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
-            >
-              {/* Image */}
-              <div className={`relative h-32 sm:h-44 md:h-48 overflow-hidden ${contain ? 'bg-white' : 'bg-gray-100'}`}>
-                <img
-                  src={img}
-                  alt={title}
-                  loading="lazy"
-                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-3 sm:p-4' : 'object-cover'}`}
-                />
-                <span className="absolute top-2 left-2 text-[0.55rem] sm:text-[0.65rem] font-bold tracking-wide uppercase bg-white/90 backdrop-blur-sm text-navy px-2 py-0.5 rounded-full shadow-sm">
-                  {category}
-                </span>
-              </div>
+            : visible.map(({ img, contain, title, desc, price, tags, category, subcategory }) => (
+              <div
+                key={title}
+                className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              >
+                {/* Image */}
+                <div className={`relative h-32 sm:h-44 md:h-48 overflow-hidden ${img ? (contain ? 'bg-white' : 'bg-gray-100') : 'bg-gray-100'}`}>
+                  {img ? (
+                    <img
+                      src={img}
+                      alt={title}
+                      loading="lazy"
+                      className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-3 sm:p-4' : 'object-cover'}`}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-gray-300">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-10 h-10 sm:w-14 sm:h-14">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      <span className="text-[0.6rem] font-medium tracking-wide uppercase">Photo coming soon</span>
+                    </div>
+                  )}
+                  <span className="absolute top-2 left-2 text-[0.55rem] sm:text-[0.6rem] font-bold tracking-wide uppercase bg-white/90 backdrop-blur-sm text-navy px-2 py-0.5 rounded-full shadow-sm">
+                    {subcategory || category}
+                  </span>
+                </div>
 
-              {/* Content */}
-              <div className="p-3 sm:p-5 flex flex-col flex-1">
-                <h3 className="font-heading font-bold text-navy text-xs sm:text-base mb-1 group-hover:text-brand transition-colors leading-snug">
-                  {title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-3 flex-1 hidden sm:block">{desc}</p>
-                <div className="flex-wrap gap-1.5 mb-4 hidden sm:flex">
-                  {tags.map(tag => (
-                    <span key={tag} className="text-[0.65rem] font-semibold bg-orange-50 text-brand border border-orange-100 px-2 py-0.5 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between gap-1 pt-2 border-t border-gray-100 mt-auto">
-                  <p className="font-heading font-black text-brand text-xs sm:text-lg leading-tight">{price}</p>
-                  <a
-                    href={waLink(title)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 sm:gap-1.5 bg-green-500 hover:bg-green-600 text-white text-[0.6rem] sm:text-xs font-bold px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg transition-colors shrink-0"
-                  >
-                    {WA_SVG}
-                    <span className="hidden sm:inline">Ask Price</span>
-                    <span className="sm:hidden">Ask</span>
-                  </a>
+                {/* Content */}
+                <div className="p-3 sm:p-5 flex flex-col flex-1">
+                  <h3 className="font-heading font-bold text-navy text-xs sm:text-base mb-1 group-hover:text-brand transition-colors leading-snug">
+                    {title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-3 flex-1 hidden sm:block">{desc}</p>
+                  <div className="flex-wrap gap-1.5 mb-4 hidden sm:flex">
+                    {tags.map(tag => (
+                      <span key={tag} className="text-[0.65rem] font-semibold bg-orange-50 text-brand border border-orange-100 px-2 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between gap-1 pt-2 border-t border-gray-100 mt-auto">
+                    <p className="font-heading font-black text-brand text-xs sm:text-lg leading-tight">{price}</p>
+                    <a
+                      href={waLink(title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 bg-green-500 hover:bg-green-600 text-white text-[0.6rem] sm:text-xs font-bold px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg transition-colors shrink-0"
+                    >
+                      {WA_SVG}
+                      <span className="hidden sm:inline">Ask Price</span>
+                      <span className="sm:hidden">Ask</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
 
         {/* Load more / Show less */}
@@ -211,7 +193,7 @@ export default function Products() {
         <div className="mt-8 md:mt-10 text-center border-t border-gray-200 pt-8">
           <p className="text-gray-400 text-xs md:text-sm mb-3">Need something not listed? We can source it for you.</p>
           <a
-            href={`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I need a product that is not listed on your website. Can you help?')}`}
+            href={`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I need a product that is not listed on your website. Can you help source it?')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-6 md:px-8 py-3 rounded-lg shadow-md shadow-brand/20 transition-all duration-200 hover:-translate-y-0.5 text-sm"

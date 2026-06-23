@@ -34,13 +34,23 @@ export default function FeaturedProducts() {
               className="group bg-white rounded-xl md:rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
-              <div className={`relative overflow-hidden aspect-square ${contain ? 'bg-white' : 'bg-gray-50'}`}>
-                <img
-                  src={img}
-                  alt={title}
-                  loading="lazy"
-                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-4' : 'object-cover'}`}
-                />
+              <div className={`relative overflow-hidden aspect-square ${img ? (contain ? 'bg-white' : 'bg-gray-50') : 'bg-gray-100'}`}>
+                {img ? (
+                  <img
+                    src={img}
+                    alt={title}
+                    loading="lazy"
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${contain ? 'object-contain p-4' : 'object-cover'}`}
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-gray-300">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="w-10 h-10">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span className="text-[0.55rem] font-medium tracking-wide uppercase">Photo coming soon</span>
+                  </div>
+                )}
                 <span className="absolute top-2 left-2 text-[0.55rem] md:text-[0.6rem] font-bold tracking-wide uppercase bg-white/90 backdrop-blur-sm text-navy px-1.5 md:px-2 py-0.5 rounded-full shadow-sm">
                   {category}
                 </span>
