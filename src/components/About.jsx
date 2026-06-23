@@ -68,16 +68,34 @@ export default function About() {
             </p>
 
             {/* MD card */}
-            <div className="flex items-center gap-5 bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 mb-8">
-              <img
-                src="/mena_gautam.png"
-                alt="Mena Gautam — Managing Director"
-                className="w-20 h-20 rounded-xl object-cover border-2 border-brand/20 shrink-0 shadow-sm"
-              />
-              <div>
-                <p className="font-heading font-bold text-navy text-base">Mena Gautam</p>
-                <p className="text-brand text-xs font-semibold mb-1">Managing Director (M.D.)</p>
-                <p className="text-gray-400 text-xs leading-relaxed">Agni Safe &amp; Safety Center</p>
+            <div className="bg-navy rounded-2xl overflow-hidden mb-8 shadow-lg">
+              <div className="flex flex-col sm:flex-row">
+                {/* Photo */}
+                <div className="sm:w-44 shrink-0 bg-navy-mid">
+                  <img
+                    src="/mena_gautam.png"
+                    alt="Mena Gautam — Managing Director, NEFASS"
+                    className="w-full h-52 sm:h-full object-cover object-top opacity-95"
+                  />
+                </div>
+
+                {/* Quote + info */}
+                <div className="p-6 flex flex-col justify-between">
+                  {/* Big quote mark */}
+                  <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="text-brand mb-3 shrink-0">
+                    <path d="M0 24V14.4C0 10.08 1.04 6.56 3.12 3.84 5.28 1.12 8.4 0 12.48 0v4.32c-2.4.32-4.08 1.2-5.04 2.64C6.48 8.4 6 10.08 6 12H12V24H0ZM20 24V14.4c0-4.32 1.04-7.84 3.12-10.56C25.28 1.12 28.4 0 32.48 0v4.32c-2.4.32-4.08 1.2-5.04 2.64C26.48 8.4 26 10.08 26 12H32V24H20Z" fill="currentColor" opacity="0.6"/>
+                  </svg>
+
+                  <p className="text-white text-sm leading-relaxed italic mb-5">
+                    "Fire safety is not a luxury — it is a responsibility. Our goal is to make every home, office, hotel, and school in Nepal properly protected with certified, reliable equipment."
+                  </p>
+
+                  <div>
+                    <p className="font-heading font-black text-white text-base">Mena Gautam</p>
+                    <p className="text-brand text-xs font-semibold tracking-wide">Managing Director (M.D.)</p>
+                    <p className="text-gray-400 text-xs mt-0.5">New Everest Fire and Safety Suppliers</p>
+                  </div>
+                </div>
               </div>
             </div>
 
