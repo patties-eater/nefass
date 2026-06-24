@@ -8,7 +8,9 @@ import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import MobileNav from './components/MobileNav'
 
-export default function App() {
+import { Navigate, Route, Routes } from 'react-router-dom'
+
+function HomePage() {
   return (
     <>
       <Navbar />
@@ -25,3 +27,18 @@ export default function App() {
     </>
   )
 }
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/products" element={<HomePage />} />
+      <Route path="/about" element={<HomePage />} />
+      <Route path="/contact" element={<HomePage />} />
+
+      {/* Fallback: redirect any unknown route to home */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  )
+}
+
