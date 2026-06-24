@@ -51,7 +51,7 @@ export default function Hero() {
       />
 
       {/* Ambient orange glow — top-right */}
-      <div className="absolute top-0 right-0 w-[28rem] h-[28rem] rounded-full pointer-events-none"
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(230,126,34,0.18) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
 
       {/* Ambient blue glow — bottom-left */}
@@ -118,12 +118,12 @@ export default function Hero() {
           </div>
 
           {/* ── RIGHT: Category mosaic (desktop only) ── */}
-          <div className="hidden md:block w-[18rem] lg:w-[22rem] shrink-0">
+         <div className="hidden md:block w-72 lg:w-96 shrink-0">
             <div className="grid grid-cols-3 gap-2">
               {catMosaic.map(({ label, accent }) => (
                 <div
                   key={label}
-                  className="rounded-xl p-3 flex flex-col items-center justify-center text-center min-h-[5.5rem] border transition-transform duration-300 hover:-translate-y-0.5 cursor-default"
+                  className="rounded-xl p-3 flex flex-col items-center justify-center text-center min-height: 5.5rem; border transition-transform duration-300 hover:-translate-y-0.5 cursor-default"
                   style={{
                     background: `${accent}14`,
                     borderColor: `${accent}28`,
