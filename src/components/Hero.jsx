@@ -98,11 +98,11 @@ export default function Hero() {
                 <ArrowRight />
               </a>
               <a
-                href="tel:+97715201750"
+                href="tel:9851120100"
                 className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-200 text-sm"
               >
                 <PhoneIcon />
-                Call 01-5201750
+                Call 9851120100
               </a>
             </div>
 
