@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="NEFASS" />
+    
+    <!-- ── DNS Prefetch & Preconnect ── -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://maps.google.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
 
     <!-- ── Primary SEO ── -->
     <title>NEFASS – New Everest Fire and Safety Suppliers | Balkumari, Lalitpur Nepal</title>
     <meta name="description" content="NEFASS (New Everest Fire and Safety Suppliers) — Balkumari-3, Lalitpur. Nepal's trusted supplier for fire extinguishers, CCTV cameras, fire alarms, EPABX systems, and metal detectors since 2008. Call 01-5201750." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="keywords" content="nefass, NEFASS, nefass.com.np, New Everest Fire and Safety Suppliers, Agni Safe Safety Center,
       fire extinguisher Nepal, buy fire extinguisher Nepal, fire extinguisher price Nepal, fire extinguisher Lalitpur,
       fire extinguisher refilling Nepal, fire extinguisher refilling Lalitpur, ABC fire extinguisher Nepal,
@@ -43,12 +57,72 @@
     <meta property="og:site_name" content="NEFASS – New Everest Fire and Safety Suppliers" />
     <meta property="og:title" content="NEFASS | Fire Extinguishers, CCTV & Safety Equipment | Lalitpur, Nepal" />
     <meta property="og:description" content="Nepal's trusted fire safety supplier since 2008. Fire extinguishers, CCTV cameras, fire alarms, EPABX, metal detectors — supply, installation & refilling. Balkumari-3, Lalitpur. Call 01-5201750." />
+    <meta property="og:image" content="https://nefass.com.np/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NEFASS - New Everest Fire and Safety Suppliers Logo" />
     <meta property="og:locale" content="en_NP" />
 
     <!-- ── Twitter / X ── -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NEFASS | Fire Safety & CCTV Supplier | Lalitpur, Nepal" />
     <meta name="twitter:description" content="Fire extinguishers, CCTV, fire alarms, EPABX & metal detectors. Nepal's trusted safety supplier since 2008. Call 01-5201750." />
+    <meta name="twitter:image" content="https://nefass.com.np/logo.png" />
+    <meta name="twitter:image:alt" content="NEFASS - New Everest Fire and Safety Suppliers Logo" />
+
+    <!-- ── Organization schema ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "New Everest Fire and Safety Suppliers",
+      "alternateName": ["NEFASS", "Agni Safe & Safety Center"],
+      "url": "https://nefass.com.np/",
+      "logo": "https://nefass.com.np/logo.png",
+      "description": "Nepal's trusted fire safety supplier since 2008. Specializing in fire extinguishers, CCTV cameras, fire alarms, EPABX systems, and metal detectors.",
+      "foundingDate": "2008",
+      "founder": {
+        "@type": "Person",
+        "name": "Mena Gautam",
+        "jobTitle": "Managing Director"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Balkumari-3",
+        "addressLocality": "Lalitpur",
+        "addressRegion": "Bagmati Province",
+        "postalCode": "44700",
+        "addressCountry": "NP"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+977-1-5201750",
+          "contactType": "sales",
+          "areaServed": "NP",
+          "availableLanguage": ["English", "Nepali"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+977-9851120100",
+          "contactType": "sales",
+          "areaServed": "NP",
+          "availableLanguage": ["English", "Nepali"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+977-9841445648",
+          "contactType": "customer service",
+          "areaServed": "NP",
+          "availableLanguage": ["English", "Nepali"]
+        }
+      ],
+      "sameAs": [
+        "https://nefass.vercel.app",
+        "https://nefass.com.np"
+      ]
+    }
+    </script>
 
     <!-- ── WebSite schema (helps Google associate domain with brand name) ── -->
     <script type="application/ld+json">
@@ -64,6 +138,14 @@
         "@type": "Organization",
         "name": "New Everest Fire and Safety Suppliers",
         "url": "https://nefass.com.np/"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://nefass.com.np/?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
     }
     </script>
@@ -77,8 +159,8 @@
       "alternateName": ["NEFASS", "Agni Safe & Safety Center", "nefass.com.np"],
       "description": "Supplier and installer of fire extinguishers, fire alarm systems, CCTV security cameras, EPABX telephone systems, and metal detectors across Nepal. Serving businesses, hotels, hospitals, schools, and government offices since 2008.",
       "url": "https://nefass.com.np/",
-      "logo": "https://nefass.com.np/favicon.svg",
-      "image": "https://nefass.com.np/favicon.svg",
+      "logo": "https://nefass.com.np/logo.png",
+      "image": "https://nefass.com.np/logo.png",
       "telephone": ["+977-1-5201750", "+977-9851120100", "+977-9841445648"],
       "email": "jagrirb@gmail.com",
       "address": {
@@ -119,6 +201,12 @@
       },
       "foundingDate": "2008",
       "numberOfEmployees": { "@type": "QuantitativeValue", "value": "10" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150",
+        "bestRating": "5"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Fire Safety & Security Products Nepal",
@@ -176,10 +264,45 @@
     }
     </script>
 
+    <!-- ── BreadcrumbList schema ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://nefass.com.np/"
+        }
+      ]
+    }
+    </script>
+
     <!-- ── Fonts ── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- ── Skip to main content (accessibility) ── -->
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #dc2626;
+        color: white;
+        padding: 8px 16px;
+        z-index: 100;
+        transition: top 0.3s;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

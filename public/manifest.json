@@ -1,0 +1,33 @@
+{
+  "name": "NEFASS - New Everest Fire and Safety Suppliers",
+  "short_name": "NEFASS",
+  "description": "Nepal's trusted fire safety supplier since 2008. Fire extinguishers, CCTV cameras, fire alarms, EPABX systems, and metal detectors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "safety", "security"],
+  "lang": "en-NP",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
