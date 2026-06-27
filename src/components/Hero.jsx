@@ -41,6 +41,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-14 md:pt-16" style={{ background: '#1B2A4A' }}>
 
+
       {/* Dot-grid texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -71,12 +72,13 @@ export default function Hero() {
               Since 2008 · Balkumari-3, Lalitpur
             </div>
 
-            {/* Headline */}
+            {/* Headline (single H1 on page via semantics in app shell) */}
             <h1 className="font-heading font-black text-[2.1rem] sm:text-5xl md:text-5xl lg:text-[3.5rem] text-white leading-[1.08] mb-5">
-              Nepal&apos;s Most<br />
-              Trusted<br />
-              <span className="text-brand">Safety Partner</span>
+              Fire Safety Equipment Supplier in Nepal
+              <span className="block text-brand mt-2">Fire Protection Solutions in Nepal</span>
             </h1>
+
+
 
             {/* Orange accent rule */}
             <div className="h-1 w-14 rounded-full mb-5" style={{ background: '#E67E22' }} />
