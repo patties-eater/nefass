@@ -72,25 +72,25 @@ export default function Hero() {
               Since 2008 · Balkumari-3, Lalitpur
             </div>
 
-            {/* Headline (single H1 on page via semantics in app shell) */}
+            {/* H1: single primary headline */}
             <h1 className="font-heading font-black text-[2.1rem] sm:text-5xl md:text-5xl lg:text-[3.5rem] text-white leading-[1.08] mb-5">
               Fire Safety Equipment Supplier in Nepal
-              <span className="block text-brand mt-2">Fire Protection Solutions in Nepal</span>
             </h1>
-
-
 
             {/* Orange accent rule */}
             <div className="h-1 w-14 rounded-full mb-5" style={{ background: '#E67E22' }} />
 
-            {/* Description */}
+            {/* Description / subtitle: naturally includes 2nd keyword without competing headline */}
             <p className="text-white/55 text-sm md:text-base leading-relaxed max-w-lg mb-8">
-              Complete fire fighting, alarm systems, CCTV security, and industrial safety
-              solutions — supply, installation &amp; after-sales service across Nepal.
+              New Everest Fire and Safety Suppliers (NEFASS) delivers complete fire protection solutions in Nepal — including fire
+              extinguishers, fire alarm systems, hydrants, fire suppression systems, emergency lighting, and industrial safety equipment.
+              Supply, installation &amp; after-sales support across Balkumari, Lalitpur and beyond.
             </p>
 
-            {/* CTAs */}
+
+            {/* Primary CTA then Secondary CTA */}
             <div className="flex flex-wrap gap-3 mb-10 md:mb-12">
+
               <a
                 href="#products"
                 className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 text-sm"
